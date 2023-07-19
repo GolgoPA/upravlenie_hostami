@@ -1,0 +1,27 @@
+---
+# tasks file for kibana
+- name: Install gnupg, gnupg1, gnupg2
+  apt:
+    pkg:
+      - gnupg
+      - gnupg1
+      - gnupg2
+
+- name: Добавляем репозиторий доброго человека
+  shell:
+    cmd: 'echo "deb http://elasticrepo.serveradmin.ru bullseye main" | tee /etc/apt/sources.list.d/elasticrepo.list'
+
+- name: Качаем ключи к репозиторию
+  shell:
+    cmd: 'wget -qO - http://elasticrepo.serveradmin.ru/elastic.asc | apt-key add -'
+
+- name: Устанавливаем Elasticsearch
+  apt:
+    name: kibana
+    update_cache: yes  
+
+- name: Enable Elasticsearch
+  systemd:
+    name: kibana
+    enabled: yes
+    state: started

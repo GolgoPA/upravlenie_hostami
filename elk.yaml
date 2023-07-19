@@ -1,0 +1,15 @@
+---
+
+- hosts: elasticsearch
+  user: golpa
+  become: true
+  become_user: root
+  roles:
+    - elasticsearch
+
+- hosts: kibana
+  user: golpa
+  become: true
+  become_user: root
+  roles:
+    - kibana
