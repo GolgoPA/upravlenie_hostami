@@ -6,5 +6,4 @@
   become_user: root
   roles:
     - configure_webs
-    - install_filebeat
     - install_prometheus-nginxlog-exporter

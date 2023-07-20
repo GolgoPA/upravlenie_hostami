@@ -6,6 +6,8 @@
   become_user: root
   roles:
     - elasticsearch
+    - configure_elasticsearch
+    - configure_logstash
 
 - hosts: kibana
   user: golpa
@@ -13,3 +15,11 @@
   become_user: root
   roles:
     - kibana
+    - configure_kibana
+
+- hosts: webs
+  user: golpa
+  become: true
+  become_user: root
+  roles:
+    - install_filebeat

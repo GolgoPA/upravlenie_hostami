@@ -1,0 +1,24 @@
+---
+# tasks file for configure_logstash
+- name: Добавляем /etc/logstash/conf.d/input.conf
+  template:
+    src: templates/input
+    dest: /etc/logstash/conf.d/input.conf
+
+- name: Добавляем /etc/logstash/conf.d/output.conf
+  template:
+    src: templates/output
+    dest: /etc/logstash/conf.d/output.conf
+
+- name: Добавляем /etc/logstash/conf.d/filter.conf
+  template:
+    src: templates/filter
+    dest: /etc/logstash/conf.d/filter.conf
+
+- name: Копируем сертификат для Logstash
+  ansible.builtin.copy:
+    directory_mode: yes
+    src: /etc/elasticsearch/certs/
+    dest: /etc/logstash/certs/
+    owner: root
+    group: logstash
