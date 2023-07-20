@@ -1,0 +1,12 @@
+---
+# tasks file for install_prometheus-nginxlog-exporter
+- name: Install prometheus-nginxlog-exporter
+  apt:
+    deb: https://github.com/martin-helmich/prometheus-nginxlog-exporter/releases/download/v1.9.2/prometheus-nginxlog-exporter_1.9.2_linux_amd64.deb
+    state: present
+
+- name: Enable prometheus-nginxlog-exporter
+  systemd:
+    name: prometheus-nginxlog-exporter
+    state: started
+    enabled: yes

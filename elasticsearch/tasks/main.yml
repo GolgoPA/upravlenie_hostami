@@ -28,7 +28,7 @@
 
 - name: Устанавливаем Logstash
   apt:
-    name: logstaash
+    name: logstash
     update_cache: yes  
 
 - name: Enable Logstash

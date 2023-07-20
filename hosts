@@ -1,7 +1,15 @@
 [elasticsearch]
+elastic
 
 [kibana]
+kibana
 
 [grafana]
+grafana
+
+[prometheus]
+prom
 
 [webs]
+web-1
+web-2
