@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Golikov's Diplom work</title>
+<style>
+    body {
+        width: 35em;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+    }
+</style>
+</head>
+<body>
+<h1>Welcome to Golikov's Diplom Work</h1>
+<p>You are on the:</p>
+<p>Hostname: {{ ansible_facts.hostname }}</p>
+<p>OS: {{ ansible_facts.distribution }} {{ ansible_facts.distribution_version }}</p>
+<p>CPU: {{ ansible_facts.processor }}</p> 
+<p>RAM: {{ ansible_facts.memtotal_mb }}</p>
+<p>HDD: {{ ansible_facts.mounts.0.device }} {{ ansible_facts.mounts.0.size_total }}</p>
+<p>IP: {{ ansible_facts.default_ipv4.address }}</p>
+</body>
+</html>

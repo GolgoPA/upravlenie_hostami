@@ -1,0 +1,6 @@
+---
+# tasks file for webs
+- name: Меняем содержимое
+  template:
+    src: templates/indexhtml.j2
+    dest: /var/www/html/index.nginx-debian.html

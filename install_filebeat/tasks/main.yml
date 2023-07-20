@@ -1,4 +1,6 @@
 ---
+# tasks file for install_filebeat
+---
 
 - name: Install gnupg, gnupg1, gnupg2
   apt:
@@ -15,24 +17,13 @@
   shell:
     cmd: 'wget -qO - http://elasticrepo.serveradmin.ru/elastic.asc | apt-key add -'
 
-- name: Устанавливаем Elasticsearch
+- name: Устанавливаем Filebeat
   apt:
-    name: elasticsearch
+    name: filebeat
     update_cache: yes  
 
-- name: Enable Elasticsearch
+- name: Enable Filebeat
   systemd:
-    name: elasticsearch
-    enabled: yes
-    state: started
-
-- name: Устанавливаем Logstash
-  apt:
-    name: logstaash
-    update_cache: yes  
-
-- name: Enable Logstash
-  systemd:
-    name: logstash
+    name: filebeat
     enabled: yes
     state: started
