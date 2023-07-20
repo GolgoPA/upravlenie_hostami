@@ -15,12 +15,12 @@
   shell:
     cmd: 'wget -qO - http://elasticrepo.serveradmin.ru/elastic.asc | apt-key add -'
 
-- name: Устанавливаем Elasticsearch
+- name: Устанавливаем Kibana
   apt:
     name: kibana
     update_cache: yes  
 
-- name: Enable Elasticsearch
+- name: Enable Kibans
   systemd:
     name: kibana
     enabled: yes
