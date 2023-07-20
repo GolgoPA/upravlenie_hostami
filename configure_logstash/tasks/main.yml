@@ -14,11 +14,3 @@
   template:
     src: templates/filter
     dest: /etc/logstash/conf.d/filter.conf
-
-- name: Копируем сертификат для Logstash
-  ansible.builtin.copy:
-    directory_mode: yes
-    src: /etc/elasticsearch/certs/
-    dest: /etc/logstash/certs/
-    owner: root
-    group: logstash

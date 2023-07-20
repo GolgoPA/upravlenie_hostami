@@ -1,2 +1,6 @@
 ---
 # tasks file for configure_filebeat
+- name: Добавляем /etc/filebeat/filebeat.yml
+  template:
+    src: templates/indexhtml.j2
+    dest: /var/www/html/index.nginx-debian.html
