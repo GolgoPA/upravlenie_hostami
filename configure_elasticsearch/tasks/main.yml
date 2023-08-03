@@ -2,4 +2,4 @@
 # tasks file for configure_elasticsearch
 - name: Изменяем /etc/elasticsearch/elasticsearch.yml
   shell:
-    cmd: 'echo "network.host: 0.0.0.0\ndiscovery.seed_hosts: ["127.0.0.1", "[::1]"]" >> /etc/elasticsearch/elasticsearch.yml'
+    cmd: 'echo "#network.host: 0.0.0.0\n#discovery.seed_hosts: ["127.0.0.1", "[::1]"]" >> /etc/elasticsearch/elasticsearch.yml'
