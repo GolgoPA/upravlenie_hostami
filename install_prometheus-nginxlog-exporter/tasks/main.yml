@@ -7,12 +7,12 @@
 
 - name: Добавляем /etc/prometheus-nginxlog-exporter.hcl
   template:
-    src: templates/prometheus-nginxlog-exporter-hcl
+    src: templates/hcl
     dest: /etc/prometheus-nginxlog-exporter.hcl
 
 - name: Добавляем /etc/systemd/system/prometheus-nginxlog-exporter.service
   template:
-    src: templates/prometheus-nginxlog-exporter-service
+    src: templates/service
     dest: /etc/systemd/system/prometheus-nginxlog-exporter.service
 
 - name: Enable prometheus-nginxlog-exporter
