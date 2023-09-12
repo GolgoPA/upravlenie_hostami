@@ -5,6 +5,16 @@
     deb: https://github.com/martin-helmich/prometheus-nginxlog-exporter/releases/download/v1.9.2/prometheus-nginxlog-exporter_1.9.2_linux_amd64.deb
     state: present
 
+- name: Добавляем /etc/prometheus-nginxlog-exporter.hcl
+  template:
+    src: templates/prometheus-nginxlog-exporter-hcl
+    dest: /etc/prometheus-nginxlog-exporter.hcl
+
+- name: Добавляем /etc/systemd/system/prometheus-nginxlog-exporter.service
+  template:
+    src: templates/prometheus-nginxlog-exporter-service
+    dest: /etc/systemd/system/prometheus-nginxlog-exporter.service
+
 - name: Enable prometheus-nginxlog-exporter
   systemd:
     name: prometheus-nginxlog-exporter
