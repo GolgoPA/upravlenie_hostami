@@ -10,7 +10,3 @@
     src: templates/output
     dest: /etc/logstash/conf.d/output.conf
 
-- name: Добавляем /etc/logstash/conf.d/filter.conf
-  template:
-    src: templates/filter
-    dest: /etc/logstash/conf.d/filter.conf

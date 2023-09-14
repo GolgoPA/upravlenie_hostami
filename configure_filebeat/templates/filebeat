@@ -1,12 +1,21 @@
-output.elasticsearch:
-  hosts: ["http://:9200"]
-  username: "elastic"
-  password: "adminadmin"
-  # If using Elasticsearch's default certificate
-  certificate_authorities:
-    - |
-       
-setup.kibana:
-  host: "http://:5601"
+filebeat.inputs:
+- type: log
+  enabled: true
+  paths:
+      - /var/log/nginx/*access.log
+  fields:
+    type: nginx_access
+  fields_under_root: true
+  scan_frequency: 5s
 
-filebeat.config.modules.path: "/etc/filebeat/modules.d/*.yml"
+- type: log
+  enabled: true
+  paths:
+      - /var/log/nginx/*error.log
+  fields:
+    type: nginx_error
+  fields_under_root: true
+  scan_frequency: 5s
+
+output.logstash:
+  hosts: ["elastic:5044"]

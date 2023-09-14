@@ -6,7 +6,6 @@
   become_user: root
   roles:
     - elasticsearch
-    - configure_elasticsearch
     - configure_logstash
 
 - hosts: kibana

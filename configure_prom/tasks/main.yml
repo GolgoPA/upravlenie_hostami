@@ -1,0 +1,6 @@
+---
+# tasks file for configure_prom
+- name: Добавляем /etc/prometheus/prometheus.yml
+  template:
+    src: templates/prometheusyml
+    dest: /etc/prometheus/prometheus.yml
