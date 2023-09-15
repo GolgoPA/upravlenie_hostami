@@ -7,7 +7,7 @@ After=network-online.target
 User=root
 Group=root
 Type=simple
-ExecStart=/usr/bin/prometheus-nginxlog-exporter -config-file /etc/prometheus-nginxlog-exporter.yml
+ExecStart=/usr/sbin/prometheus-nginxlog-exporter -config-file /etc/prometheus-nginxlog-exporter.yml
 
 [Install]
 WantedBy=multi-user.target
