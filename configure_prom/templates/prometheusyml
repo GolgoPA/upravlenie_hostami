@@ -41,7 +41,7 @@ scrape_configs:
     # If prometheus-node-exporter is installed, grab stats about the local
     # machine by default.
     static_configs:
-      - targets: ['localhost:9100','web-1:9100','web-2:9100','elastic:9100']
+      - targets: ['localhost:9100','grafana:9100','web-1:9100','web-2:9100','elastic:9100','kibana:9100']
 
   - job_name: 'nginx'
     scrape_interval: 5s
