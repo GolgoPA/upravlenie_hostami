@@ -1,6 +1,21 @@
 ---
 # tasks file for webs
+- name: Удаляем /etc/nginx/sites-enabled/default
+  ansible.builtin.file:
+    path: /etc/nginx/sites-enabled/default
+    state: absent
+
+- name: Меняем /etc/nginx/nginx.conf
+  template:
+    src: templates/nginxconfig
+    dest: /etc/nginx/nginx.conf
+
+- name: Создаём /etc/nginx/conf.d/diplom.conf
+  template:
+    src: templates/diplomconf
+    dest: /etc/nginx/conf.d/diplom.conf
+
 - name: Меняем содержимое
   template:
-    src: templates/indexhtml.j2
+    src: templates/content
     dest: /var/www/html/index.nginx-debian.html
